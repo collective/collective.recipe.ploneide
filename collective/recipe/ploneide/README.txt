@@ -42,9 +42,9 @@ We'll start by creating a buildout that uses the recipe::
     >>> write('buildout.cfg',
     ... """
     ... [buildout]
-    ... parts = test1
+    ... parts = ploneide
     ...
-    ... [test1]
+    ... [ploneide]
     ... recipe = collective.recipe.ploneide
     ... option1 = %(foo)s
     ... option2 = %(bar)s
@@ -54,8 +54,8 @@ Running the buildout gives us::
 
     >>> print 'start', system(buildout) 
     start...
-    Installing test1.
-    Unused options for test1: 'option2' 'option1'.
+    Installing ploneide.
+    Unused options for ploneide: 'option2' 'option1'.
     <BLANKLINE>
 
 
