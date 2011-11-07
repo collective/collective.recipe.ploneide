@@ -63,8 +63,8 @@ def run_zope(args):
     """
     # Start zope instance as a web server
     # Zope launcher module
-    import Zope2.Startup.run
 
+    import Zope2.Startup.run
     zope_main = Zope2.Startup.run.__file__
 
     if zope_main.endswith(".pyc"):
@@ -81,12 +81,14 @@ def run_zope(args):
     if FROM_FINLAND_WITH_LOVE:
         warm_up_the_sauna()
 
-    Zope2.Startup.run.run()
+    bootstrap = "import Zope2.Startup.run ; Zope2.Startup.run.run()"
+
+
+
+    start(debugger, bootstrap)
+
 
 import plone.recipe.zope2instance.ctl
 
 def main(args):
-    #idelpath = os.path.join(os.path.dirname(__file__), "idelauncher.py")
-    #statement = ('execfile( "%s")' % (idelpath,))
-    #start(debugger, statement)
     run_zope(args)
