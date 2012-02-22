@@ -61,6 +61,7 @@ setup(name='collective.recipe.ploneide',
       install_requires=['setuptools',
                         'zc.buildout',
                         'plone.recipe.zope2instance',
+                        'TornadIO',
                         'collective.ploneide',
                         # -*- Extra requirements: -*-
                         ],
