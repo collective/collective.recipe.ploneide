@@ -31,15 +31,18 @@ class Recipe(object):
         # directory, in where we'll store different configuration parameters
         # needed to modify the IDE's behavior
         buildout_dir = self.buildout["buildout"]["directory"]
+        location = self.buildout["instance"]["location"]
+
+        zope_conf_path = os.path.join(location, "etc", "zope.conf")
 
         instance_host = self.options.get("instance-host", None)
-        
+
         if not instance_host:
             instance_host = self.buildout["instance"]["http-address"]
             if len(instance_host.split(':')) > 1:
                 instance_host = instance_host.split(':')[0]
             else:
-                instance_host = '0.0.0.0'
+                instance_host = 'localhost'
 
 
         instance_port = self.options.get("instance-port", None)
@@ -73,6 +76,7 @@ class Recipe(object):
 
         config.set('Directories', 'buildout', buildout_dir)
         config.set('Directories', 'devel', devel_directories)
+        config.set('Directories', 'zope-conf-file', zope_conf_path)
 
         config.set('Servers', 'instance-host', instance_host)
         config.set('Servers', 'instance-port', instance_port)
@@ -86,16 +90,13 @@ class Recipe(object):
             config.write(configfile)
 
         return config_file
-        
+
 
     def install(self):
         """Installer"""
         # XXX Implement recipe functionality here
         options = self.options
 
-        location = self.buildout["instance"]["location"]
-
-        zope_conf_path = os.path.join(location, "etc", "zope.conf")
         config_file = self.create_ploneide_conf()
 
         requirements, ws = self.egg.working_set(['collective.recipe.ploneide'])

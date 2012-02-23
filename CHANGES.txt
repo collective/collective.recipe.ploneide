@@ -1,8 +1,10 @@
 1.0 (xxxx-xx-xx)
 ----------------
 
+- Added directories and servers configuration options [frapell]
+
 - Created recipe with ZopeSkel
-  [""]
+  [frapell]
 
 - Added an initial PloneIDE Recipe's Documentation inside README.txt and setup.py files 
   [macagua]
