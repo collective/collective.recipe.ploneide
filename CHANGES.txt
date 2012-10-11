@@ -1,6 +1,9 @@
 1.0 (xxxx-xx-xx)
 ----------------
 
+- Fix the standalone installation of the recipe
+  [edegoute]
+
 - Added directories and servers configuration options [frapell]
 
 - Created recipe with ZopeSkel

@@ -16,11 +16,13 @@ import sys
 import os
 import subprocess
 
+from zc.recipe.egg import Egg
+
 class Recipe(object):
     """zc.buildout recipe"""
 
     def __init__(self, buildout, name, options):
-        self.egg = zc.recipe.egg.Egg(buildout, options['recipe'], options)
+        self.egg = Egg(buildout, options['recipe'], options)
         self.buildout, self.name, self.options = buildout, name, options
         options['bin-directory'] = buildout['buildout']['bin-directory']
 
