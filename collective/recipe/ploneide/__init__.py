@@ -200,8 +200,7 @@ class Recipe(object):
             self.install_developer_manual()
         else:
             print "Using online collective.developermanual"
-            self.developer_manual_uri = ("http://collective-docs.readthedocs"
-                                         ".org/en/latest")
+            self.developer_manual_uri = "http://developer.plone.org/"
 
         config_file = self.create_ploneide_conf()
 
